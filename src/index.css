@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,60 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+  margin: 2rem;
+}
+
+.nav-items >ul>li {
+  padding: 1rem;
+
+}
+.nav-items >ul {
+  list-style-type: none;
+  display: flex;
+  gap : 1rem
+
+}
+.logo{
+  width:8rem;
+  height: auto;
+  border-radius: 30%;
+
+}
+.card {
+  width: 17rem;
+  height: auto;
+  border: 0.01rem solid #ccc;
+  padding: 1rem;
+  box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.20);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+.card:last-child {
+  margin-bottom: 2rem;
+  flex-grow: 0;
+}
+.card:nth-last-child(1), .card:nth-last-child(2) { 
+  flex-grow: 0;}
+
+.card > img {
+  width: 100%;
+  height: 10rem;
+}
+.card >h4,.card >h5 {
+  font-size: small;
+}
+
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  gap:  1rem;
+  row-gap: 1rem;
 }
