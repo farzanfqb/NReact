@@ -86,3 +86,14 @@ code {
   row-gap: 1rem;
   margin-bottom: 2rem;
 }
+.footer{
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width:100%;
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
