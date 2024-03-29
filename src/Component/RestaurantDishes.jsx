@@ -2,7 +2,6 @@ import React from 'react'
 import { DISH_URL } from '../constants';
 
 const RestaurantDishes = ({dishes}) => {  
-  console.log(dishes);
   return (
     <> 
     {dishes?.map((e)=>(
