@@ -14,14 +14,12 @@ const Instamart = () => {
   const [sectionConfig, setSectionConfig] = React.useState("")
   console.log(sectionConfig);
   return (
-
     <div>
       <h1>Instamart</h1>
       <Section title={'Show About'} isOpen={sectionConfig === "Show About"} setIsOpen={setSectionConfig} />
       <Section title={'Show Team'} isOpen={sectionConfig === "Show Team"} setIsOpen={setSectionConfig} />
       <Section title={'Show Careers'} isOpen={sectionConfig === "Show Careers"} setIsOpen={setSectionConfig} />
     </div>
-
   )
 }
 
