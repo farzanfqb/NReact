@@ -3,16 +3,18 @@ import { useSelector } from 'react-redux';
 import FoodItems from './FoodItems';
 import { clearItems } from "../utils/cartSlice";
  import {useDispatch} from "react-redux";
+ import {useSelector} from "react-redux";
 
 const Cart = () => {
   const cartItems = useSelector(store => store.cart.items)
 
   const dispatch = useDispatch();
+  const foodItems = useSelector((store) => store.cart.items);
 
   const handleClearCart = () => {
     dispatch(clearItems());
   };
-
+  
   return (
     <div>
       <h1>Cart Items {cartItems.length}</h1>
@@ -26,8 +28,8 @@ const Cart = () => {
         {cartItems?.length === 0 && (
           <h1> Cart is empty. Add Items to the cart!</h1>
         )}
-      <FoodItems {...cartItems} />
-      </div>
+{ foodItems.map(item => <FoodItems {...cartItems} />)
+}      </div>
       </div>
   )
 }
