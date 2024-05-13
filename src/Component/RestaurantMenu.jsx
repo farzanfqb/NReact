@@ -5,14 +5,14 @@ import useRestaurant from '../utils/useRestaurant';
 import { Shimmer } from './Shimmer';
 
 const RestaurantMenu = () => {
-  const {id} = useParams();
+  const {id, name, add} = useParams();
   console.log(id);
-  const restaurant = useRestaurant(id);
+  const restaurant = useRestaurant(id,name,add);
   
   return !restaurant ?(
     <Shimmer /> ):(
     <div>
-    <RestaurantView {...restaurant}/>
+    <RestaurantView {...restaurant.info}/>
     </div>
   )
 }

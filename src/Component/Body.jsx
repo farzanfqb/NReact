@@ -9,9 +9,8 @@ const Body = () => {
   const online = useOnline()
 
   async function getRestaurants() {
-      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const data = await fetch("https://instafood.onrender.com/api/restaurants?lat=19.07480&lng=72.88560");
       const json = await data.json();
-      console.log(json);
       setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
@@ -26,9 +25,14 @@ const Body = () => {
   }
 
   return (
-      filteredrestaurant.length === 0 ? <Shimmer />
+      filteredrestaurant.length === 0 ? 
+      <>
+      <Shimmer />
+      <input label="Search" type="text" className="search-input" placeholder="Search" value={searchText}
+       onChange={(e) => { setSearchText(e.target.value); const filteredRestaurants = listOfRestaurants.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase())); setFilteredRestaurant(filteredRestaurants); } } />
+      </>
           : <>
-              <input label="Search" type="text" className="search-input" placeholder="Search" value={searchText} onChange={(e) => { setSearchText(e.target.value); const filteredRestaurants = listOfRestaurants.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase())); console.log(filteredRestaurants); setFilteredRestaurant(filteredRestaurants); }} />
+              <input label="Search" type="text" className="search-input" placeholder="Search" value={searchText} onChange={(e) => { setSearchText(e.target.value); const filteredRestaurants = listOfRestaurants.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase())); setFilteredRestaurant(filteredRestaurants); }} />
               <button onClick={() => {
                   const filteredRestaurants = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                   setFilteredRestaurant(filteredRestaurants);

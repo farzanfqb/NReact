@@ -11,6 +11,7 @@ import RestaurantMenu from './Component/RestaurantMenu';
 import ProfileClass from './Component/ProfileClass';
 import Profile from './Component/Profile';
 import { Shimmer } from './Component/Shimmer';
+import Cart from "./Component/Cart";
 
 const Instamart = React.lazy(() => import("./Component/Instamart"));
 const appRouter = createBrowserRouter([
@@ -43,13 +44,17 @@ const appRouter = createBrowserRouter([
         element: <Contact />
       },
       {
-        path: "/restaurant/:id",
+        path: "/restaurant/:name-:add-:id",
         element: <RestaurantMenu />
       },
       {
         path: "/instamart",
         element: <Suspense fallback={<Shimmer />}><Instamart /></Suspense>
-      }
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ]
 
   },
